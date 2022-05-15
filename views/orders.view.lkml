@@ -28,7 +28,7 @@ view: orders {
   }
 
   dimension: user_id {
-    type: number
+    type: string
     # hidden: yes
     sql: ${TABLE}.user_id ;;
   }
