@@ -5,6 +5,7 @@ include: "/views/**/*.view"
 
 
 explore: orders {
+  label: "Orders made by users"
   join: users {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
