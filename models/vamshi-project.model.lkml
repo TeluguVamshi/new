@@ -1,6 +1,5 @@
 connection: "thelook"
-
-# include all the views
+include: "/**/bug_t.dashboard"
 include: "/views/**/*.view"
 
 
