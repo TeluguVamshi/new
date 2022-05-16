@@ -22,9 +22,20 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
+  dimension: time_ref {
+    datatype: timestamp
+    type: date_time
+    sql: CAST(${created_time} as DATETIME) ;;
+    html: {{rendered_value | date:"%m/%d/%Y %H:%M"}} ;;
+  }
+
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
+    link: {
+      label: "linking"
+      url: "{{count._link}}"
+    }
   }
 
   dimension: user_id {
