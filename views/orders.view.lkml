@@ -1,5 +1,6 @@
 view: orders {
   #this is orders view
+  #this commit is from vamshi's another branch
   sql_table_name: demo_db.orders ;;
   drill_fields: [id]
 
