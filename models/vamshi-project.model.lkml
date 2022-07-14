@@ -10,7 +10,11 @@ explore: orders {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
+}
+  always_filter: {
+    filters: [orders.date_granularity: "-EMPTY"]
   }
+
 }
 
 explore: order_items {
@@ -18,7 +22,9 @@ explore: order_items {
     type: left_outer
     sql_on: ${order_items.order_id} = ${orders.id} ;;
     relationship: many_to_one
-  }
+    }
+
+
 
   join: inventory_items {
     type: left_outer

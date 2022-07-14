@@ -36,6 +36,7 @@ view: users {
       year
     ]
     sql: ${TABLE}.created_at ;;
+    html: {{ rendered_value | date: "%d-%b-%Y %I:%M %p" }} ;;
   }
 
   dimension: email {

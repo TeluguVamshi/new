@@ -2,6 +2,7 @@ view: orders {
   sql_table_name: demo_db.orders ;;
   drill_fields: [id]
 
+
   dimension: id {
     primary_key: yes
     type: number
@@ -10,16 +11,8 @@ view: orders {
 
   dimension_group: created {
     type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
     sql: ${TABLE}.created_at ;;
+    html: {{ rendered_value | date: "%d-%b-%Y %I:%M %p" }} ;;
   }
 
   dimension: time_ref {
@@ -37,6 +30,20 @@ view: orders {
       url: "{{count._link}}"
     }
   }
+
+  parameter: date_granularity {
+    type: unquoted
+    allowed_value: {
+      label: "Break down by Day"
+      value: "day"
+    }
+    allowed_value: {
+      label: "Break down by Month"
+      value: "month"
+    }
+  }
+
+
 
   dimension: user_id {
     type: string
