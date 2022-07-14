@@ -32,6 +32,7 @@ view: order_items {
       year
     ]
     sql: ${TABLE}.returned_at ;;
+    html: {{ rendered_value | date: "%d-%b-%Y %I:%M %p" }} ;;
   }
 
   dimension: sale_price {
